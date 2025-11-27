@@ -1,3 +1,82 @@
+# ContactManager
+
+A simple Next.js App Router project to manage contacts.
+
+## Requirements
+- Node.js 18+ (tested with Node v22.20.0)
+- npm (or pnpm/yarn)
+
+## Install
+```bash
+npm install
+```
+
+## Development
+```bash
+npm run dev
+# If port 3000 is busy
+npm run dev -- -p 3001
+```
+Open `http://localhost:3000` (or `http://localhost:3001`).
+
+## Build + Start
+```bash
+npm run build
+npm run start
+```
+
+## Scripts
+- `npm run dev` – start dev server
+- `npm run build` – production build
+- `npm run start` – run production server
+
+## App Structure
+```
+src/app/
+	_components/
+		Navbar.tsx
+	_data/
+		db.json
+	(auth)/
+		login/
+			page.tsx
+			LoginForm.tsx
+		register/
+			page.tsx
+			RegisterForm.tsx
+	contact/
+		page.tsx
+		new/page.tsx
+		edit/[id]/page.tsx
+	contacts/page.tsx
+	users/page.tsx
+	layout.tsx
+	page.tsx
+```
+
+## Routes
+- `/` – Home
+- `/login` – Login page
+- `/register` – Register page
+- `/contact` – Contacts index
+- `/contact/new` – New contact
+- `/contact/edit/[id]` – Edit contact by id
+- `/contacts` – Lists contacts from `db.json`
+- `/users` – Lists users from `db.json`
+
+## Metadata
+Global metadata set in `src/app/layout.tsx`. Per-page metadata defined in `login/register` pages. Use `generateMetadata` for dynamic routes.
+
+## Notes
+- If dev server refuses to connect, clear the Next cache:
+```powershell
+Remove-Item ".next" -Recurse -Force -ErrorAction SilentlyContinue
+npm run dev -- -p 3001
+```
+- JSON data is imported from `src/app/_data/db.json`. For production, prefer API routes or a database.
+
+## License
+Proprietary – for personal use.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
